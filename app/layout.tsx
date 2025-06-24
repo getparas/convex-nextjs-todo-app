@@ -1,3 +1,4 @@
+import type React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -6,13 +7,14 @@ import { ConvexAuthNextjsServerProvider } from "@convex-dev/auth/nextjs/server";
 import ConvexClientProvider from "@/components/convex-client-provider";
 
 const inter = Inter({
-  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: "Convex Fullstack App",
-  description: "A fullstack app built with Convex and Next.js",
+  title: "BRUTALIST TODO",
+  description: "A bold, minimalist task management application",
 };
 
 export default function RootLayout({
@@ -23,12 +25,12 @@ export default function RootLayout({
   return (
     <ConvexAuthNextjsServerProvider>
       <html lang="en">
-        <body
-          className={`${inter.variable} min-h-[calc(100vh-2rem)] flex flex-col gap-4 antialiased`}
-        >
+        <body className={`${inter.variable} antialiased`}>
           <ConvexClientProvider>
-            <Navbar />
-            <main className="px-2 md:px-4 grow flex flex-col">{children}</main>
+            <div className="min-h-screen flex flex-col">
+              <Navbar />
+              <main className="flex-1">{children}</main>
+            </div>
           </ConvexClientProvider>
         </body>
       </html>

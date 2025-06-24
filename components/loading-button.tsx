@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Button, ButtonProps } from "@/components/ui/button";
+import { Button, type ButtonProps } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +14,7 @@ const LoadingButton = React.forwardRef<HTMLButtonElement, LoadingButtonProps>(
   ({ className, children, isLoading = false, disabled, ...props }, ref) => {
     return (
       <Button
-        className={cn(className)}
+        className={cn("hover-lift", className)}
         disabled={disabled || isLoading}
         ref={ref}
         {...props}
